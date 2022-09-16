@@ -141,9 +141,9 @@ home_keyboard_pm = InlineKeyboardMarkup(
 )
 
 home_text_pm = (
-        f"Hey there! My name is {BOT_NAME}. I can manage your "
-        + "group with lots of useful features, feel free to "
-        + "add me to your group."
+        f"Hey {username}! My name is {BOT_NAME}. Let's have some "
+        + "fun managing your group chats. Just add me "
+        + "to your group and get started"
 )
 
 keyboard = InlineKeyboardMarkup(
