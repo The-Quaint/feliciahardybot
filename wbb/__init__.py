@@ -143,7 +143,7 @@ if USERBOT_ID not in SUDOERS:
 
 log.info("Initializing Telegraph client")
 telegraph = Telegraph()
-r = await telegraph.create_account(short_name='Srrozekillsmywilliamfelicia')
+r = telegraph.create_account(short_name='Srrozekillsmywilliamfelicia')
 auth_url = r["auth_url"]
 
 async def eor(msg: Message, **kwargs):
