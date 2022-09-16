@@ -1,5 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
+from telegraph import Telegraph
 
 from wbb import app, telegraph
 from wbb.core.decorators.errors import capture_err
@@ -7,6 +8,9 @@ from wbb.core.decorators.errors import capture_err
 __MODULE__ = "Telegraph"
 __HELP__ = "/telegraph [Page name]: Paste styled text on telegraph."
 
+telegraph = Telegraph()
+r = telegraph.create_account(short_name="BlackCat")
+auth_url = r["auth_url"]
 
 @app.on_message(filters.command("telegraph") & ~filters.edited)
 @capture_err
