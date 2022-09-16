@@ -23,6 +23,8 @@ SOFTWARE.
 """
 import asyncio
 import time
+import random
+import string
 from inspect import getfullargspec
 from os import path
 
@@ -141,9 +143,13 @@ USERBOT_DC_ID = y.dc_id
 if USERBOT_ID not in SUDOERS:
     SUDOERS.add(USERBOT_ID)
 
+letters = string.ascii_letters
+accname = ''.join(random.choice(letters) for i in range(18))
+    
+    
 log.info("Initializing Telegraph client")
 telegraph = Telegraph()
-r = telegraph.create_account(short_name='Srrozekillsmywilliamfelicia')
+r = telegraph.create_account(short_name=accname)
 auth_url = r["auth_url"]
 
 async def eor(msg: Message, **kwargs):
