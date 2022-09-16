@@ -142,7 +142,7 @@ if USERBOT_ID not in SUDOERS:
     SUDOERS.add(USERBOT_ID)
 
 telegraph = Telegraph()
-telegraph.create_account(short_name='odjfnaopifqeipiskooooasfna',author_name=None, author_url=None, replace_token=True)
+telegraph.create_account(short_name='thequaintalandavidfeliciabot',author_name=None, author_url=None, replace_token=True)
 
 async def eor(msg: Message, **kwargs):
     func = (
