@@ -141,7 +141,6 @@ USERBOT_DC_ID = y.dc_id
 if USERBOT_ID not in SUDOERS:
     SUDOERS.add(USERBOT_ID)
 
-telegraph = Telegraph()
 
 async def eor(msg: Message, **kwargs):
     func = (
