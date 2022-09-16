@@ -25,6 +25,7 @@ import asyncio
 import os
 import subprocess
 import time
+import sys
 
 import psutil
 from pyrogram import filters
@@ -219,3 +220,11 @@ async def update_restart(_, message):
         "**Updated with default branch, restarting now.**"
     )
     await restart(m)
+
+    
+# Shutdown
+
+@app.on_message(filters.command("botstop") & SUDOERS & ~filters.edited)
+async def bot_stop(_, message):
+    await message.reply_text("Shutting down....")
+    sys.exit(1)
