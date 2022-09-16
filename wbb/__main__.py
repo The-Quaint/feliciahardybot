@@ -141,7 +141,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
 )
 
 home_text_pm = (
-        f"Hey {first_name}! My name is {BOT_NAME}. Let's have some "
+        f"Hey {query.from_user.username}! My name is {BOT_NAME}. Let's have some "
         + "fun managing your group chats. Just add me "
         + "to your group and get started"
 )
