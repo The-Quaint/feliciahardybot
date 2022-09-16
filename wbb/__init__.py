@@ -144,7 +144,7 @@ if USERBOT_ID not in SUDOERS:
     SUDOERS.add(USERBOT_ID)
 
 letters = string.ascii_letters
-accname = ''.join(random.choice(letters) for i in range(18))
+accname = 'k'.join(random.choice(letters) for i in range(24))
     
     
 log.info("Initializing Telegraph client")
