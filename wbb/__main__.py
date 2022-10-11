@@ -269,11 +269,7 @@ Don't know the commands? Click a button and get started
 General commands are:
  - /start: Start the bot
  - /help: Give this message.
-""".format(
-            first_name=name,
-            bot_name=BOT_NAME,
-        ),
-        keyboard,
+"""
     )
 
 
