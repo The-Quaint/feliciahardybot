@@ -25,10 +25,11 @@ SOFTWARE.
 from pyrogram import filters
 from pyrogram.types import Message
 
-from wbb import USERBOT_ID, USERBOT_PREFIX, app2, eor, log, telegraph
+from wbb import USERBOT_ID, USERBOT_PREFIX, app2, eor, log
 
 __MODULE__ = "Userbot"
-TEXT = """
+
+__HELP__ ="""
 <code>alive</code>  →  Send Alive Message.<br>
 
 <code>create (b|s|c) Title</code>  →  create [basic|super]group & channel<br>
@@ -79,14 +80,6 @@ TEXT = """
 
 <code>dice</code> → Roll a dice.<br>
 """
-log.info("Pasting userbot commands on telegraph")
-
-__HELP__ = f"""**Commands:** {telegraph.create_page(
-    "Userbot Commands",
-    html_content=TEXT,
-)['url']}"""
-
-log.info("Done pasting userbot commands on telegraph")
 
 
 @app2.on_message(
@@ -95,8 +88,7 @@ log.info("Done pasting userbot commands on telegraph")
 async def get_help(_, message: Message):
     await eor(
         message,
-        text=__HELP__,
-        disable_web_page_preview=True,
+        text=__HELP__
     )
 
 
