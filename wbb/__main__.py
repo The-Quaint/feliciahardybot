@@ -262,7 +262,7 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hey {query.from_user.first_name}, I am **Felicia**.
+        f"""Hey {query.from_user.first_name}, I am **Felicia**.
 I can help you make your group chats more fun.
 Don't know the commands? Click a button and get started
 
