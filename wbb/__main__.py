@@ -301,12 +301,11 @@ async def help_button(client, query):
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
     top_text = f"""
-Hello {query.from_user.first_name}, My name is {BOT_NAME}.
-I'm a group management bot with some usefule features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+Hey {query.from_user.first_name}, I am **Felicia**.
+I can help you make your group chats more fun.
+Don't know the commands? Click a button and get started
 
-General command are:
+General commands are:
  - /start: Start the bot
  - /help: Give this message
  """
