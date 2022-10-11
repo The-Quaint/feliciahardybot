@@ -262,10 +262,13 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hello {first_name}, My name is {bot_name}.
-I'm a group management bot with some useful features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+        """Hey {query.from_user.first_name}, I am **Felicia**.
+I can help you make your group chats more fun.
+Don't know the commands? Click a button and get started
+
+General commands are:
+ - /start: Start the bot
+ - /help: Give this message.
 """.format(
             first_name=name,
             bot_name=BOT_NAME,
