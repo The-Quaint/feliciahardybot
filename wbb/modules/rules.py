@@ -2,6 +2,7 @@
 from wbb import app 
 from wbb import app2 
 from pyrogram import filters 
+from wbb.core.decorators.permissions import adminsOnly
 ...
 
 
