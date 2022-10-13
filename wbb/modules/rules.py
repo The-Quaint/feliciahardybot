@@ -21,7 +21,7 @@ __HELP__ = '''<b>Available Commands:</b>
 
 @app.on_message(filters.command("setrules") & ~filters.edited & ~filters.private)
 @adminsOnly("can_restrict_members")
-async def set_rules(message, chat, strings):
+async def set_rules(message, chat,):
     chat_id = chat["chat_id"]
 
     # FIXME: documents are allow to saved (why?), check for args if no 'reply_to_message'
@@ -31,9 +31,10 @@ async def set_rules(message, chat, strings):
     if (
         await db.rules.replace_one({"chat_id": chat_id}, note, upsert=True)
     ).modified_count > 0:
-        text = strings["updated"]
+        text = str["updated"]
+    
     else:
-        text = strings["saved"]
+        text = str["saved"]
 
     await message.reply(text % chat["chat_title"])
 
