@@ -27,7 +27,7 @@ __HELP__ = '''<b>Available Commands:</b>
 
 @app.on_message(filters.command("setrules") & ~filters.edited & ~filters.private)
 @adminsOnly("can_restrict_members")
-async def set_rules(message, chat, string):
+async def set_rules(message, chat,):
     chat_id = message.chat.id
 
     # FIXME: documents are allow to saved (why?), check for args if no 'reply_to_message'
