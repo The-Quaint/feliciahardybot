@@ -41,11 +41,11 @@ from pyrogram.types import (
     User,
 )
 
-from nezuko import SUDOERS, WELCOME_DELAY_KICK_SEC, app
-from nezuko.core.decorators.errors import capture_err
-from nezuko.core.decorators.permissions import adminsOnly
-from nezuko.core.keyboard import ikb
-from nezuko.utils.dbfunctions import (
+from wbb import SUDOERS, WELCOME_DELAY_KICK_SEC, app
+from wbb.core.decorators.errors import capture_err
+from wbb.core.decorators.permissions import adminsOnly
+from wbb.core.keyboard import ikb
+from wbb.utils.dbfunctions import (
     captcha_off,
     captcha_on,
     del_welcome,
@@ -58,38 +58,28 @@ from nezuko.utils.dbfunctions import (
     set_welcome,
     update_captcha_cache,
 )
-from nezuko.utils.filter_groups import welcome_captcha_group
-from nezuko.utils.functions import extract_text_and_keyb, generate_captcha
+from wbb.utils.filter_groups import welcome_captcha_group
+from wbb.utils.functions import extract_text_and_keyb, generate_captcha
 
 __MODULE__ = "Greetings"
 __HELP__ = """
 /captcha [ENABLE|DISABLE] - Enable/Disable captcha.
-
 /set_welcome - Reply this to a message containing correct
 format for a welcome message, check end of this message.
-
 /del_welcome - Delete the welcome message.
 /get_welcome - Get the welcome message.
-
 **SET_WELCOME ->**
-
 The format should be something like below.
-
 ```
 **Hi** {name} Welcome to {chat}
-
 ~ #This separater (~) should be there between text and buttons, remove this comment also
-
 button=[Duck, https://duckduckgo.com]
 button2=[Github, https://github.com]
 ```
-
 **NOTES ->**
-
 for /rules, you can do /filter rules to a message
 containing rules of your groups whenever a user
 sends /rules, he'll get the message
-
 Checkout /markdownhelp to know more about formattings and other syntax.
 """
 
