@@ -22,7 +22,10 @@ __MODULE__ = "Rules"
 __HELP__ = '''<b>Available Commands:</b>
 - /setrules (rules): saves the rules (also works with reply)
 - /rules: Shows the rules of chat if any!
-- /resetrules: Resets group's rules'''
+- /resetrules: Resets group's rules
+
+**Note from developer:**
+This module is still under development and so the above commands does not work. Use filters for setting up /rules command
 
 
 @app.on_message(filters.command("setrules") & ~filters.edited & ~filters.private)
