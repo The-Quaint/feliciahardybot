@@ -25,7 +25,7 @@ __HELP__ = '''<b>Available Commands:</b>
 - /resetrules: Resets group's rules
 
 **Note from developer:**
-This module is still under development and so the above commands does not work. Use filters for setting up /rules command
+This module is still under development and so the above commands does not work. Use filters for setting up /rules command '''
 
 
 @app.on_message(filters.command("setrules") & ~filters.edited & ~filters.private)
