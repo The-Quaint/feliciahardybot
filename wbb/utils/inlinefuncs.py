@@ -24,6 +24,7 @@ SOFTWARE.
 import asyncio
 import os
 import sys
+from contextlib import suppress
 from html import escape
 from re import sub as re_sub
 from sys import version as pyver
@@ -106,7 +107,7 @@ async def inline_help_func(__HELP__):
             title="Github Repo",
             description="Get Github Respository Of Bot.",
             input_message_content=InputTextMessageContent(
-                "https://github.com/The-Quaint/Black-Cat-New"
+                "https://github.com/thehamkercat/WilliamButcherBot"
             ),
             thumb_url="https://hamker.me/gjc9fo3.png",
         ),
@@ -127,7 +128,7 @@ async def alive_function(answers):
     )
 
     msg = f"""
-**[Felicia✨](https://github.com/The-Quaint/Black-Cat-New):**
+**[William✨](https://github.com/thehamkercat/WilliamButcherBot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
@@ -227,7 +228,7 @@ async def google_search_func(answers, text):
             break
         limit += 1
 
-        try:
+        with suppress(KeyError):
             msg = f"""
 [{i['titles']}]({i['links']})
 {i['descriptions']}"""
@@ -241,8 +242,6 @@ async def google_search_func(answers, text):
                     ),
                 )
             )
-        except KeyError:
-            pass
     return answers
 
 
@@ -306,7 +305,6 @@ async def torrent_func(answers, text):
                 ),
             )
         )
-        pass
     return answers
 
 
