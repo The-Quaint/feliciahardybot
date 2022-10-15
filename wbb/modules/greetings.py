@@ -397,7 +397,8 @@ async def set_welcome_func(_, message):
         return
     chat_id = message.chat.id
     raw_text = message.reply_to_message.text.markdown
-    
+    if not (extract_text_and_keyb(ikb, raw_text)):
+        return await message.reply_text("Wrong formating, check help section.")
     await set_welcome(chat_id, raw_text)
     await message.reply_text("Welcome message has been successfully set.")
 
