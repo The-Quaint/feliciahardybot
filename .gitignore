@@ -1,3 +1,4 @@
+whisper.py
 mirror.py
 dump
 *.m4a
@@ -156,3 +157,4 @@ error.log
 permissions.json
 .vscode
 .idea
+*.env
