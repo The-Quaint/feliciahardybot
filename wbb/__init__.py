@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 TheHamkerCat
+Copyright (c) 2024 TheHamkerCat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -32,6 +32,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyromod import listen
 from Python_ARQ import ARQ
+from telegraph import Telegraph
 
 is_config = path.exists("config.py")
 
@@ -39,6 +40,7 @@ if is_config:
     from config import *
 else:
     from sample_config import *
+
 
 USERBOT_PREFIX = USERBOT_PREFIX
 GBAN_LOG_GROUP_ID = GBAN_LOG_GROUP_ID
@@ -100,21 +102,23 @@ async def load_sudoers():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(load_sudoers())
 
-if not HEROKU:
+if not SESSION_STRING:
     app2 = Client(
-        "userbot",
-        phone_number=PHONE_NUMBER,
+        name="sessions/userbot",
         api_id=API_ID,
         api_hash=API_HASH,
+        phone_number=PHONE_NUMBER,
     )
 else:
-    app2 = Client(SESSION_STRING, api_id=API_ID, api_hash=API_HASH)
+    app2 = Client(
+        name="sessions/userbot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING
+    )
 
 aiohttpsession = ClientSession()
 
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
-app = Client("wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
+app = Client("sessions/wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
 log.info("Starting bot client")
 app.start()
@@ -140,6 +144,9 @@ USERBOT_DC_ID = y.dc_id
 if USERBOT_ID not in SUDOERS:
     SUDOERS.add(USERBOT_ID)
 
+log.info("Initializing Telegraph client")
+telegraph = Telegraph(domain="graph.org")
+telegraph.create_account(short_name=BOT_USERNAME)
 
 
 async def eor(msg: Message, **kwargs):
